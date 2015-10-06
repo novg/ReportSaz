@@ -1,0 +1,38 @@
+﻿<Window x:Class="ReportSaz.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Отчет межгород ОАО САЗ" Height="350" Width="525">
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo x:Name="taskBar"/>
+    </Window.TaskbarItemInfo>
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top">
+            <Button x:Name="btnOpen"  ToolTip="Открыть файл" Click="btnOpen_Click">
+                <Image Source="Images/open.png" Height="{x:Static SystemParameters.IconHeight}" />
+            </Button>
+            <Button x:Name="btnExecute"  ToolTip="Выполнить отчет" IsEnabled="False" Click="btnExecute_Click" Opacity="0.6">
+                <Image Source="Images/play.png" Height="{x:Static SystemParameters.IconHeight}"/>
+            </Button>
+            <Button x:Name="btnAbout" ToolTip="О программе" Click="btnAbout_Click">
+                <Image Source="Images/info.png" Height="{x:Static SystemParameters.IconHeight}"/>
+            </Button>
+        </ToolBar>
+        <Label x:Name="lblDrop" VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Center" Cursor="ScrollAll" FontFamily="Segoe UI Semibold" FontSize="14"
+               AllowDrop="True" Drop="lblDrop_Drop">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Images/Excel-icon.png" Height="32"/>
+                <TextBlock x:Name="txtName" Text="Перетащите файл сюда" VerticalAlignment="Center" Margin="5,0,0,0" />
+            </StackPanel>
+            <Label.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Очистить" Click="MenuItem_Click">
+                        <MenuItem.Icon>
+                            <Image Source="Images/Clear-Icon.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </Label.ContextMenu>
+        </Label>
+    </DockPanel>
+</Window>
